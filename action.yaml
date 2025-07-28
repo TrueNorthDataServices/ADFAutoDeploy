@@ -20,7 +20,7 @@ runs:
   steps: 
     - name: Delete Artifacts
       shell: pwsh
-      run: deleteArtifacts.ps1
+      run: ./deleteArtifacts.ps1
       env:
        AzureDataFactoryName: 'TestADF'
        EntraIDSecret: 'blahsecretblah'
