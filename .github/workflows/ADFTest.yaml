@@ -6,7 +6,10 @@ on:
 jobs:
   deployment:
     runs-on: windows-latest
+    defaults:
+      run:
+        working-directory: ./github
     steps:
       - name: Azure Data Factory Deploy
         # You may pin to the exact commit or the version.
-        uses: ADFAutoDeploy
+        run: ./actions/adfDeploy/action.yaml
