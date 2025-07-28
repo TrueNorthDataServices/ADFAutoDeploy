@@ -1,5 +1,5 @@
 name: Azure Data Factory Deploy
-
+description: 'Automates the deployment of Azure Data Factory artifacts using the collaboration branch in the repo.' 
 on:
   workflow_call:
     inputs:
@@ -15,16 +15,14 @@ on:
       EntraIDToken:
         required: true
         description: 'Bearer token to call Azure Data Factory APIs'
-jobs:
-  deployment:
-    runs-on: windows-latest
-    steps:
-      - name: Delete Artifacts
-        shell: pwsh
-        run: deleteArtifacts.ps1
-        with: 
-           AzureDataFactoryName: 'TestADF'
-           EntraIDSecret: 'blahsecretblah'
-           ObjectType: 'pipeline'
-           LocalPath: '.\pipeline'
-          
+runs:
+  using: "composite"
+  steps: 
+    - name: Delete Artifacts
+      shell: pwsh
+      run: .\deleteArtifacts.ps1
+      env:
+       AzureDataFactoryName: 'TestADF'
+       EntraIDSecret: 'blahsecretblah'
+       ObjectType: 'pipeline'
+       LocalPath: '.\pipeline'
