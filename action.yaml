@@ -1,5 +1,5 @@
 name: Azure Data Factory Deploy
-description: 'Automates the deployment of Azure Data Factory artifacts using the collaboration branch.  Add/Modify/Delete tasks will be completed by this task.' 
+description: 'Automates the deployment of Azure Data Factory artifacts using the collaboration branch in the repo.' 
 on:
   workflow_call:
     inputs:
