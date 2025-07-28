@@ -1,0 +1,31 @@
+name: Azure Data Factory Deploy
+
+on:
+  workflow_call:
+    inputs:
+      AzureSubscriptionID:
+        required: true
+        type: string
+        description: 'Azure Subscription ID from the Azure Portal or pwsh cmdlet Get-AzContext (ex: aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee)'
+      DataFactoryName:
+        required: true
+        type: string
+        description: 'Name of the Azure Data Factory (ex: TrueNorthDev)'
+      
+    secrets: 
+      EntraIDToken:
+        required: true
+        description: 'Bearer token to call Azure Data Factory APIs'
+jobs:
+  deployment:
+    runs-on: windows-latest
+    steps:
+      - name: Delete Artifacts
+        shell: pwsh
+        run: .\deleteArtifacts.ps1
+        with: 
+           AzureDataFactoryName: 'TestADF'
+           EntraIDSecret: 'blahsecretblah'
+           ObjectType: 'pipeline'
+           LocalPath: '.\pipeline'
+          
