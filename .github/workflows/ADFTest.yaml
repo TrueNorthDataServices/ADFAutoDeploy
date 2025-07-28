@@ -9,4 +9,4 @@ jobs:
     steps:
       - name: Azure Data Factory Deploy
         # You may pin to the exact commit or the version.
-        run: adfDeploy/action.yaml
+        uses: truenorthdataservices/adfautodeploy@v0.1-alpha
