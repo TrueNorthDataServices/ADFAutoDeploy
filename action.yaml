@@ -11,7 +11,6 @@ on:
         required: true
         type: string
         description: 'Name of the Azure Data Factory (ex: TrueNorthDev)'
-      
     secrets: 
       EntraIDToken:
         required: true
@@ -22,7 +21,7 @@ jobs:
     steps:
       - name: Delete Artifacts
         shell: pwsh
-        run: .\deleteArtifacts.ps1
+        run: deleteArtifacts.ps1
         with: 
            AzureDataFactoryName: 'TestADF'
            EntraIDSecret: 'blahsecretblah'
