@@ -10,3 +10,4 @@
 )
 
 write-output $azureDataFactoryName
+write-output $objectType

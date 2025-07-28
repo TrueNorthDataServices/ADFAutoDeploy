@@ -26,4 +26,3 @@ runs:
        EntraIDSecret: 'blahsecretblah'
        ObjectType: 'pipeline'
        LocalPath: '.\pipeline'
-        
