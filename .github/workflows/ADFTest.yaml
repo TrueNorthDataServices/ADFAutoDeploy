@@ -1,0 +1,12 @@
+name: ADF Test Harness
+
+on:
+  workflow_dispatch:
+  
+jobs:
+  deployment:
+    runs-on: windows-latest
+    steps:
+      - name: Azure Data Factory Deploy
+        # You may pin to the exact commit or the version.
+        uses: ADFAutoDeploy
